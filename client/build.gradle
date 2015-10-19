@@ -15,6 +15,7 @@ model {
                     }
                 }
             }
+            targetPlatform 'java7'
             targetPlatform 'java8'
         }
     }

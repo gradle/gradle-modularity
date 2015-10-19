@@ -11,6 +11,7 @@ model {
                     source.srcDir 'src/service/java'
                 }
             }
+            targetPlatform 'java7'
             targetPlatform 'java8'
         }
     }
