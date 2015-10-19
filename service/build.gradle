@@ -16,6 +16,10 @@ model {
             sources {
                 java {
                     source.srcDir 'src/client/java'
+
+                    dependencies {
+                        library 'service'
+                    }
                 }
             }
         }
