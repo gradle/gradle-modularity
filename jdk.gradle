@@ -1,0 +1,25 @@
+def jdkBaseDir = '/Library/Java/JavaVirtualMachines/'
+
+gradle.taskGraph.whenReady { taskGraph ->
+    allprojects {
+        tasks.withType(JavaCompile) {
+            def jdk
+            switch (it.name) {
+                case ~/compileJava6.+/: jdk = '/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home'; break
+                case ~/compileJava7.+/: jdk = '/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home'; break
+                case ~/compileJava8.+/: jdk = '/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home'; break
+                case ~/compileJava9.+/: jdk = '/Library/Java/JavaVirtualMachines/jdk1.9.0.jdk/Contents/Home'; break
+                default: jdk = '/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home'
+            }
+            def javacPath = new File("$jdk/bin/javac")
+            if (javacPath.exists()) {
+                options.fork = true
+                options.forkOptions.executable = javacPath.absolutePath
+            } else {
+                println "Cannot find JDK $jdk at $jdkBaseDir$jdk. $it.name will use the default"
+            }
+        }
+    }
+}
+
+

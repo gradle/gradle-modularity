@@ -1,0 +1,16 @@
+plugins {
+    id 'jvm-component'
+    id 'java-lang'
+}
+
+model {
+    components {
+        service(JvmLibrarySpec) {
+            sources {
+                java {
+                    source.srcDir 'src/service/java'
+                }
+            }
+        }
+    }
+}
