@@ -12,5 +12,12 @@ model {
                 }
             }
         }
+        client(JvmLibrarySpec) {
+            sources {
+                java {
+                    source.srcDir 'src/client/java'
+                }
+            }
+        }
     }
 }
