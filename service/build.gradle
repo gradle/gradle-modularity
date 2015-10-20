@@ -11,7 +11,7 @@ model {
                     source.srcDir 'src/service/java'
 
                     dependencies {
-                        library 'org.eclipse.jetty:jetty-servlet:9.3.5.v20151012'
+                        library 'org.eclipse.jetty:jetty-servlet:9.3.5.v20151012' exported(true)
                         library 'org.apache.httpcomponents:httpclient:4.5.1'
                     }
                 }
