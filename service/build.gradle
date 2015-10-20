@@ -11,6 +11,9 @@ model {
                     source.srcDir 'src/service/java'
                 }
             }
+            api {
+                exports 'org.gradle.example.service'
+            }
             targetPlatform 'java6'
             targetPlatform 'java7'
             targetPlatform 'java8'
