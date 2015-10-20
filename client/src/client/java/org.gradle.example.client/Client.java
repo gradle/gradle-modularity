@@ -7,7 +7,5 @@ public class Client {
 
     public void clientMethod() {
         System.out.println("FOO");
-        HttpGet httpget = new HttpGet(
-                "https://www.google.com/search?hl=en&q=gradle");
     }
 }
